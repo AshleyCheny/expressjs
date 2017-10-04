@@ -11,7 +11,16 @@ app.set('port', process.env.PORT || 3002);
 
 // routes
 
+// route for home ('/')
 app.get('/', function(req, res){
+  res.send(`
+    <h1>Welcome</h1>
+    <p>This is homepage!</p>
+    `);
+});
+
+// route for /speakers
+app.get('/speakers', function(req, res){
 
   // create html string based on the data file content
   var info = '';
@@ -28,8 +37,21 @@ app.get('/', function(req, res){
   // send response back to the client(browser)
   // no need to worry about mime type here, because express already handle that for us
   res.send(`
-    <h1>This is Server built by Express</h1>
+    <h1>This is speakers' info page.</h1>
     <ol>${ info }</ol>
+    `);
+});
+
+// route for /speakers/:speakerid
+app.get('/speakers/:speakerid', function(req, res){
+  // get the speaker object based on the speaker id get from the the request
+  var speaker = dataFile.speakers[req.params.speakerid];
+
+  // display js variable data in html using ${ js variable }
+  res.send(`
+    <h1>${ speaker.title }</h1>
+    <h2>with ${ speaker.name }</h2>
+    <p>${ speaker.summary }</p>
     `);
 });
 
@@ -37,6 +59,8 @@ app.get('/', function(req, res){
 var server = app.listen(app.get('port'), function(){
   console.log("Listening on port " + app.get('port'));
 });
+
+
 /*------------------------- handle HTTP request with Node.js -------------------------*/
 
 // // http is a module which contains functions
