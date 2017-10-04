@@ -32,3 +32,19 @@ This is a repository copy from the author for practice purpose. The course link:
 #### Passing Data to route
 - Express: `app.set()`
 - Express: `req.app.get()`
+
+### Creating a public folder
+- `app.use()`
+- `express.static()`
+
+### Automating the workflow
+- Watch for changes
+- Reload browser
+- Use package.json scripts
+  - `"scripts": {
+      "start": "nodemon -e css,ejs,js,json --watch app"
+    },`
+- Nodemon package (Node Monitor)
+  - `install -g nodemon`
+- [Reload package](https://github.com/alallier/reload/tree/master#api-for-express)
+  - `install -g reload`

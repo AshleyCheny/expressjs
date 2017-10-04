@@ -1,6 +1,9 @@
 /*------------------------- handle HTTP request with Express -------------------------*/
 
 var express = require('express');
+
+// add the reload module
+var reload = require('reload');
 var app = express();
 
 // get the data file content which is an object
@@ -23,6 +26,8 @@ var server = app.listen(app.get('port'), function(){
   console.log("Listening on port " + app.get('port'));
 });
 
+// use the method reload() to reload the server and app
+reload(server, app);
 
 /*------------------------- handle HTTP request with Node.js -------------------------*/
 

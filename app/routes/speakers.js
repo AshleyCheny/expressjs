@@ -24,8 +24,9 @@ router.get('/speakers', function(req, res){
   // no need to worry about mime type here, because express already handle that for us
   res.send(`
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <h1>This is speakers' info page.</h1>
-    <ol>${ info }</ol>
+    <h1>Speakers</h1>
+    <ul>${ info }</ul>
+    <script src="/reload/reload.js"></script>
     `);
 });
 
@@ -44,6 +45,7 @@ router.get('/speakers/:speakerid', function(req, res){
     <h2>with ${ speaker.name }</h2>
     <img src="/images/speakers/${ speaker.shortname }_tn.jpg" alt="speaker">
     <p>${ speaker.summary }</p>
+    <script src="/reload/reload.js"></script>
     `);
 });
 
