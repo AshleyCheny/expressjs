@@ -6,7 +6,9 @@ var router = express.Router();
 // instead of using app.get(), we need to use router.get()
 router.get('/', function(req, res){
   res.send(`
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <h1>Welcome</h1>
+    <img src="/images/misc/background.jpg" alt="background" style="height: 300px">
     <p>This is homepage!</p>
     `);
 });

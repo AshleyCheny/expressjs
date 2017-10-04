@@ -11,6 +11,9 @@ app.set('port', process.env.PORT || 3002);
 // set certain variables to be available throughout the entire app
 app.set('appData', dataFile);
 
+// method express provides to destinate a specific static data in public folder
+app.use(express.static('app/public'));
+
 // routes reference
 app.use(require('./routes/index'));
 app.use(require('./routes/speakers'));

@@ -14,6 +14,7 @@ router.get('/speakers', function(req, res){
     info += `
     <li>
       <h2>${ item.name }</h2>
+      <img src="/images/speakers/${ item.shortname }_tn.jpg" alt="speaker">
       <p>${ item.summary }</p>
     </li>
     `;
@@ -22,6 +23,7 @@ router.get('/speakers', function(req, res){
   // send response back to the client(browser)
   // no need to worry about mime type here, because express already handle that for us
   res.send(`
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <h1>This is speakers' info page.</h1>
     <ol>${ info }</ol>
     `);
@@ -37,8 +39,10 @@ router.get('/speakers/:speakerid', function(req, res){
 
   // display js variable data in html using ${ js variable }
   res.send(`
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <h1>${ speaker.title }</h1>
     <h2>with ${ speaker.name }</h2>
+    <img src="/images/speakers/${ speaker.shortname }_tn.jpg" alt="speaker">
     <p>${ speaker.summary }</p>
     `);
 });
