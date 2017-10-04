@@ -3,17 +3,39 @@
 var express = require('express');
 var app = express();
 
+// get the data file content which is an object
+var dataFile = require('./data/data.json');
+
+// get the port number automatically
+app.set('port', process.env.PORT || 3002);
+
 // routes
 
 app.get('/', function(req, res){
+
+  // create html string based on the data file content
+  var info = '';
+  dataFile.speakers.forEach(function(item){
+    // use ES6 back-ticks, so the variable can span multiple lines
+    info += `
+    <li>
+      <h2>${ item.name }</h2>
+      <p>${ item.summary }</p>
+    </li>
+    `;
+  });
+
+  // send response back to the client(browser)
   // no need to worry about mime type here, because express already handle that for us
-  res.send('<h1>This Server with Express</h1>');
+  res.send(`
+    <h1>This is Server built by Express</h1>
+    <ol>${ info }</ol>
+    `);
 });
 
-
 // listen to port
-var server = app.listen(3002, function(){
-  console.log("Go to http://localhost:3002 on your browser");
+var server = app.listen(app.get('port'), function(){
+  console.log("Listening on port " + app.get('port'));
 });
 /*------------------------- handle HTTP request with Node.js -------------------------*/
 

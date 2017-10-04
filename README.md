@@ -8,3 +8,12 @@ This is a repository copy from the author for practice purpose. The course link:
 
 ## Modules
 - http
+
+## How Express Works?
+- Provide additional methods
+- require()
+- express()
+- No mime type
+  - A MIME type is a label used to identify a type of data. Eg. text/html
+  - Express will handle mime type
+- Easy routing
