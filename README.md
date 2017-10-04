@@ -22,3 +22,13 @@ This is a repository copy from the author for practice purpose. The course link:
 ### Basic routing
 - Use `app.get()`;
 - Pass variables req.params
+
+### Modularizing routes
+#### NodeJS & Express modularization
+- NodeJS modularization
+- Node: `require()`, `module.exports`
+- Express: `app.use()`
+- Express: `express.router()`
+#### Passing Data to route
+- Express: `app.set()`
+- Express: `req.app.get()`

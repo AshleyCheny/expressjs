@@ -8,52 +8,12 @@ var dataFile = require('./data/data.json');
 
 // get the port number automatically
 app.set('port', process.env.PORT || 3002);
+// set certain variables to be available throughout the entire app
+app.set('appData', dataFile);
 
-// routes
-
-// route for home ('/')
-app.get('/', function(req, res){
-  res.send(`
-    <h1>Welcome</h1>
-    <p>This is homepage!</p>
-    `);
-});
-
-// route for /speakers
-app.get('/speakers', function(req, res){
-
-  // create html string based on the data file content
-  var info = '';
-  dataFile.speakers.forEach(function(item){
-    // use ES6 back-ticks, so the variable can span multiple lines
-    info += `
-    <li>
-      <h2>${ item.name }</h2>
-      <p>${ item.summary }</p>
-    </li>
-    `;
-  });
-
-  // send response back to the client(browser)
-  // no need to worry about mime type here, because express already handle that for us
-  res.send(`
-    <h1>This is speakers' info page.</h1>
-    <ol>${ info }</ol>
-    `);
-});
-
-// route for /speakers/:speakerid
-app.get('/speakers/:speakerid', function(req, res){
-  // get the speaker object based on the speaker id get from the the request
-  var speaker = dataFile.speakers[req.params.speakerid];
-
-  // display js variable data in html using ${ js variable }
-  res.send(`
-    <h1>${ speaker.title }</h1>
-    <h2>with ${ speaker.name }</h2>
-    <p>${ speaker.summary }</p>
-    `);
-});
+// routes reference
+app.use(require('./routes/index'));
+app.use(require('./routes/speakers'));
 
 // listen to port
 var server = app.listen(app.get('port'), function(){
