@@ -54,3 +54,7 @@ This is a repository copy from the author for practice purpose. The course link:
 - Use any Templates
 - [Embeddable JavaScript (EJS)](http://www.embeddedjs.com/)
   - `npm install --save ejs`
+
+### Using data with views
+- `res.render('index', { data })`
+- `app.locals.??? = {}`

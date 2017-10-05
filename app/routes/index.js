@@ -7,7 +7,11 @@ var router = express.Router();
 // add reload script at the end of each page
 router.get('/', function(req, res){
   // render the index view
-  res.render('index');
+  // pass data to view page
+  res.render('index', {
+    "pageTitle": 'Home',
+    "pageID": 'home'
+  });
 });
 
 // in order to modularize routes, at the end of each route file, we have to export the router

@@ -18,6 +18,9 @@ app.set('view engine', 'ejs');
 // app will have access to views folder
 app.set('views', 'app/views');
 
+// set global variables to be able to use the data in the view
+app.locals.siteTitle = 'Ronux Meetups';
+
 // method express provides to destinate a specific static data in public folder
 app.use(express.static('app/public'));
 
