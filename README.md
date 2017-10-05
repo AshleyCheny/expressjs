@@ -9,7 +9,7 @@ This is a repository copy from the author for practice purpose. The course link:
 ## Modules
 - http
 
-## How Express Works?
+## How Express Works? (A js library)
 - Provide additional methods
 - `require()`
 - `express()`
@@ -39,12 +39,18 @@ This is a repository copy from the author for practice purpose. The course link:
 
 ### Automating the workflow
 - Watch for changes
+  - Nodemon package (Node Monitor)
+    - `install -g nodemon`
 - Reload browser
-- Use package.json scripts
+  - [Reload package](https://github.com/alallier/reload/tree/master#api-for-express)
+    - `install -g reload`
+- Use package.json scripts to use a preference name as command
   - `"scripts": {
       "start": "nodemon -e css,ejs,js,json --watch app"
     },`
-- Nodemon package (Node Monitor)
-  - `install -g nodemon`
-- [Reload package](https://github.com/alallier/reload/tree/master#api-for-express)
-  - `install -g reload`
+
+## Working with Templates
+### Installing a templating engine
+- Use any Templates
+- [Embeddable JavaScript (EJS)](http://www.embeddedjs.com/)
+  - `npm install --save ejs`

@@ -13,6 +13,10 @@ var dataFile = require('./data/data.json');
 app.set('port', process.env.PORT || 3002);
 // set certain variables to be available throughout the entire app
 app.set('appData', dataFile);
+// add the reference for view engine(template)
+app.set('view engine', 'ejs');
+// app will have access to views folder
+app.set('views', 'app/views');
 
 // method express provides to destinate a specific static data in public folder
 app.use(express.static('app/public'));
