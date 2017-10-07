@@ -58,3 +58,6 @@ This is a repository copy from the author for practice purpose. The course link:
 ### Using data with views
 - `res.render('index', { data })`
 - `app.locals.??? = {}`
+
+### Using conditionals and loops in EJS
+#### Conditions & loops

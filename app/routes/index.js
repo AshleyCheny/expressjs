@@ -6,10 +6,20 @@ var router = express.Router();
 // instead of using app.get(), we need to use router.get()
 // add reload script at the end of each page
 router.get('/', function(req, res){
+
+  // get the data from data model
+  var data = req.app.get('appData');
+  var pagePhotos = [];
+
+  data.speakers.forEach(function(item){
+    pagePhotos = pagePhotos.concat(item.artwork);
+  });
+
   // render the index view
   // pass data to view page
   res.render('index', {
     "pageTitle": 'Home',
+    "artwork": pagePhotos,
     "pageID": 'home'
   });
 });
