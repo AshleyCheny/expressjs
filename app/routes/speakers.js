@@ -4,30 +4,25 @@ var router = express.Router();
 
 // route for /speakers
 router.get('/speakers', function(req, res){
-  // get the app data
-  var dataFile = req.app.get('appData');
 
-  // create html string based on the data file content
-  var info = '';
-  dataFile.speakers.forEach(function(item){
-    // use ES6 back-ticks, so the variable can span multiple lines
-    info += `
-    <li>
-      <h2>${ item.name }</h2>
-      <img src="/images/speakers/${ item.shortname }_tn.jpg" alt="speaker">
-      <p>${ item.summary }</p>
-    </li>
-    `;
-  });
+    // get the data from data model
+    var data = req.app.get('appData');
+    var pagePhotos = [];
+    var pageSpeakers = data.speakers;
 
-  // send response back to the client(browser)
-  // no need to worry about mime type here, because express already handle that for us
-  res.send(`
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <h1>Speakers</h1>
-    <ul>${ info }</ul>
-    <script src="/reload/reload.js"></script>
-    `);
+    data.speakers.forEach(function(item){
+      pagePhotos = pagePhotos.concat(item.artwork);
+    });
+
+    // render the index view
+    // this is where the express app connects/finds views and send back to browser the html template
+    // pass data to view page
+    res.render('speakers', {
+      "pageTitle": 'Speakers',
+      "artwork": pagePhotos,
+      "pageID": 'speakers',
+      "speakers": pageSpeakers
+    });
 });
 
 // route for /speakers/:speakerid

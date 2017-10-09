@@ -16,6 +16,7 @@ router.get('/', function(req, res){
   });
 
   // render the index view
+  // this is where the express app connects/finds views and send back to browser the html template
   // pass data to view page
   res.render('index', {
     "pageTitle": 'Home',

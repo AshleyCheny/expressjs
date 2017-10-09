@@ -1,6 +1,7 @@
 /*------------------------- handle HTTP request with Express -------------------------*/
 
 var express = require('express');
+const ejsLint = require('ejs-lint');
 
 // add the reload module
 var reload = require('reload');

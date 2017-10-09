@@ -2,6 +2,32 @@
 This is a repository copy from the author for practice purpose. The course link: [lynda.com](http://lynda.com).
 
 # Notes
+## Project Folder Structure
+`expressjs`
+  `.git`
+  `app`
+    `data`
+      `data.json`
+    `public`
+      `css`
+      `images`
+      `js`
+    `routes`
+      `index.js`
+      `speakers.js`
+    `views`
+      `partials`
+        `content`
+        `template`
+      `index.ejs`
+    `app.js`
+  `node_modules`
+  `.DS_Store`
+  `.gitignore`
+  `package.json`
+  `README.md`
+  - `app.js` config everything together
+  - `routes` collect info from `data` and `views` and send back response to the browser
 ## How NodeJS works?
 - Load modules with `require();`
 - Built-in or external
@@ -49,7 +75,7 @@ This is a repository copy from the author for practice purpose. The course link:
       "start": "nodemon -e css,ejs,js,json --watch app"
     },`
 
-## Working with Templates
+## Working with Templates within Express App (Server Side --> views folder)
 ### Installing a templating engine
 - Use any Templates
 - [Embeddable JavaScript (EJS)](http://www.embeddedjs.com/)
@@ -61,3 +87,9 @@ This is a repository copy from the author for practice purpose. The course link:
 
 ### Using conditionals and loops in EJS
 #### Conditions & loops
+
+### Creating partials through includes
+- EJS: include the partials
+- Partials
+  - Content
+  - Template
