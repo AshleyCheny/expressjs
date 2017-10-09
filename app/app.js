@@ -30,6 +30,7 @@ app.use(express.static('app/public'));
 // routes reference
 app.use(require('./routes/index'));
 app.use(require('./routes/speakers'));
+app.use(require('./routes/feedback'));
 
 // listen to port
 var server = app.listen(app.get('port'), function(){

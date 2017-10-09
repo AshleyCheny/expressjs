@@ -102,3 +102,8 @@ This is a repository copy from the author for practice purpose. The course link:
 ### Working with getData() in views
 - use `app.locals.xxx` to create an object variable that all the views can have access to it
 - display different info based on the pages
+
+## Using APIs and HTTP Verbs
+- create server API using Node.js and Express.js
+- use JavaScript to communicate with Server API through ajax call/request
+### Setting up a regular route
