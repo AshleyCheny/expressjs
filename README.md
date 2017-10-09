@@ -107,7 +107,14 @@ This is a repository copy from the author for practice purpose. The course link:
 - create server API using Node.js and Express.js
 - use JavaScript to communicate with Server API through ajax call/request
 ### Setting up a regular route
-###Create an API route
+### Create an API route
 - get the data from database
 - use `res.json()` to send the json data back the the browser with the specific route request
-- the client side will use jQuery `getJSON()` method to get back the JSON data
+- the client side will use jQuery `getJSON()` method to get back the JSON data and display the data to the page
+
+### Handling POST requests
+- Verbs: `GET, POST, DELETE, UPDATE`
+- POST: Send data
+- Handle submit with jQuery
+- Use `body-parse` middleware to parse the submit data
+- Use `fs` to write files (file system)
