@@ -93,3 +93,12 @@ This is a repository copy from the author for practice purpose. The course link:
 - Partials
   - Content
   - Template
+
+### Building flexible views
+- data passed from routes
+- EJS condition
+- Bootstrap classes
+
+### Working with getData() in views
+- use `app.locals.xxx` to create an object variable that all the views can have access to it
+- display different info based on the pages

@@ -21,6 +21,8 @@ app.set('views', 'app/views');
 
 // set global variables to be able to use the data in the view
 app.locals.siteTitle = 'Ronux Meetups';
+// create local files so that views file can have access to the variables directly
+app.locals.allSpeakers = dataFile.speakers;
 
 // method express provides to destinate a specific static data in public folder
 app.use(express.static('app/public'));

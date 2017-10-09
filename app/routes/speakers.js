@@ -20,28 +20,35 @@ router.get('/speakers', function(req, res){
     res.render('speakers', {
       "pageTitle": 'Speakers',
       "artwork": pagePhotos,
-      "pageID": 'speakers',
+      "pageID": 'speakerList',
       "speakers": pageSpeakers
     });
 });
 
 // route for /speakers/:speakerid
 router.get('/speakers/:speakerid', function(req, res){
-  // get the app data
-  var dataFile = req.app.get('appData');
 
-  // get the speaker object based on the speaker id get from the the request
-  var speaker = dataFile.speakers[req.params.speakerid];
+    // get the data from data model
+    var data = req.app.get('appData');
+    var pagePhotos = [];
+    var pageSpeakers = [];
 
-  // display js variable data in html using ${ js variable }
-  res.send(`
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <h1>${ speaker.title }</h1>
-    <h2>with ${ speaker.name }</h2>
-    <img src="/images/speakers/${ speaker.shortname }_tn.jpg" alt="speaker">
-    <p>${ speaker.summary }</p>
-    <script src="/reload/reload.js"></script>
-    `);
+    data.speakers.forEach(function(item){
+      if (item.shortname == req.params.speakerid) {
+        pageSpeakers.push(item);
+        pagePhotos = pagePhotos.concat(item.artwork);
+      }
+    });
+
+    // render the index view
+    // this is where the express app connects/finds views and send back to browser the html template
+    // pass data to view page
+    res.render('speakers', {
+      "pageTitle": 'Speaker Info',
+      "artwork": pagePhotos,
+      "pageID": 'speakerDetails',
+      "speakers": pageSpeakers
+    });
 });
 
 // in order to modularize routes, at the end of each route file, we have to export the router
