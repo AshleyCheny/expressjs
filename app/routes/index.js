@@ -10,6 +10,7 @@ router.get('/', function(req, res){
   // get the data from data model
   var data = req.app.get('appData');
   var pagePhotos = [];
+  var pageSpeakers = data.speakers;
 
   data.speakers.forEach(function(item){
     pagePhotos = pagePhotos.concat(item.artwork);
@@ -21,7 +22,8 @@ router.get('/', function(req, res){
   res.render('index', {
     "pageTitle": 'Home',
     "artwork": pagePhotos,
-    "pageID": 'home'
+    "pageID": 'home',
+    "speakers": pageSpeakers
   });
 });
 
