@@ -121,3 +121,7 @@ This is a repository copy from the author for practice purpose. The course link:
 
 ### Dealing with DELETE requests
 -  use `splice()` to delete one element in the array
+
+## Creating a Live Chat
+### Setting up our chat route
+- set up routes and associated views with it
