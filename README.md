@@ -118,3 +118,6 @@ This is a repository copy from the author for practice purpose. The course link:
 - Handle submit with jQuery
 - Use `body-parse` middleware to parse the submit data
 - Use `fs` to write files (file system)
+
+### Dealing with DELETE requests
+-  use `splice()` to delete one element in the array

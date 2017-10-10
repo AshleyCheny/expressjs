@@ -20,8 +20,26 @@ router.post('/api', function(req, res){
   // use Node.js file system to save the data into the file
   fs.writeFile('app/data/feedback.json', JSON.stringify(feedbackData), 'utf8',
   function(err){
-    console.log(err);
+    if (err) {
+      console.log(err);
+    }
+  });
+  // send the data back to the client/browser
+  res.json(feedbackData);
 });
+
+// handle the delete request from client/browser
+router.delete('/api/:id', function(req, res){
+  // delete the data based on the parameter id
+  feedbackData.splice(req.params.id, 1);
+  // use Node.js file system to save the data into the file
+  fs.writeFile('app/data/feedback.json', JSON.stringify(feedbackData), 'utf8',
+  function(err){
+    if (err) {
+      console.log(err);
+    }
+  });
+
   // send the data back to the client/browser
   res.json(feedbackData);
 });
