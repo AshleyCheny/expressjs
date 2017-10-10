@@ -125,3 +125,6 @@ This is a repository copy from the author for practice purpose. The course link:
 ## Creating a Live Chat
 ### Setting up our chat route
 - set up routes and associated views with it
+
+### Adding chat with JavaScript
+- get the form data and display the form data in the display container
