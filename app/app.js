@@ -10,6 +10,8 @@ var app = express();
 // get the data file content which is an object
 var dataFile = require('./data/data.json');
 
+var io = require('socket.io')();
+
 // get the port number automatically
 app.set('port', process.env.PORT || 3002);
 // set certain variables to be available throughout the entire app
@@ -37,6 +39,17 @@ app.use(require('./routes/chat'));
 // listen to port
 var server = app.listen(app.get('port'), function(){
   console.log("Listening on port " + app.get('port'));
+});
+
+// set up socket io for the server
+io.attach(server);
+io.on('connection',function(socket){
+  console.log('User Connected');
+
+  socket.on('postMessage', function(data){
+    console.log('User Disconnected');
+    io.emit('updateMessages', data);
+  });
 });
 
 // use the method reload() to reload the server and app

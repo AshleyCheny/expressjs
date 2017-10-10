@@ -128,3 +128,12 @@ This is a repository copy from the author for practice purpose. The course link:
 
 ### Adding chat with JavaScript
 - get the form data and display the form data in the display container
+
+### Working with Socket.IO
+- middleware to allow real time applications
+
+#### How Socket.io works
+- Server & Client
+- Install middleware
+- Client script
+- New events
